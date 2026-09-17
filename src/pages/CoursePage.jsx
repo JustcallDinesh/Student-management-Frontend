@@ -1,6 +1,6 @@
-import CourseHeader from "../components/courses/CourseHeader";
-import CourseForm from "../components/courses/CourseForm";
-import CourseTable from "../components/courses/CourseTable";
+import CourseHeader from "../components/courses/CourseHeader.jsx";
+import CourseForm from "../components/courses/CourseForm.jsx";
+import CourseTable from "../components/courses/courseTable.jsx"
 
 import useCourses from "../hooks/useCourses";
 
