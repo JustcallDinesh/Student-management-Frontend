@@ -1,6 +1,6 @@
 import EnrollmentHeader from "../components/enrollments/enrollmentHeader.jsx"
-import EnrollmentForm from "../components/enrollments/EnrollmentForm.jsx";
-import EnrollmentTable from "../components/enrollments/EnrollmentTable.jsx";
+import EnrollmentForm from "../components/enrollments/enrollmentForm.jsx"
+import EnrollmentTable from "../components/enrollments/enrollmentTable.jsx";
 
 import useEnrollments from "../hooks/useEnrollments";
 
