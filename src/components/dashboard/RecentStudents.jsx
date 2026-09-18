@@ -58,11 +58,11 @@ const RecentStudents = ({ students = [] }) => {
 
                 <div className="min-w-0">
 
-                  <p className="truncate font-semibold text-white">
+                  <p className="truncate text-left font-semibold text-white">
                     {student.name}
                   </p>
 
-                  <p className="truncate text-sm text-slate-400">
+                  <p className="truncate text-left text-[12px] text-slate-400">
                     {student.email}
                   </p>
 

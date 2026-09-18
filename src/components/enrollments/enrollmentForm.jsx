@@ -16,11 +16,11 @@ const EnrollmentForm = ({
   error,
 }) => {
   return (
-    <div className="rounded-3xl border border-white/30  backdrop-blur-xl shadow-xl p-8">
+    <div className="rounded-3xl border border-white/30  backdrop-blur-xl shadow-xl p-6">
 
       <div className="flex items-center justify-between mb-6">
 
-        <h3 className="text-2xl font-bold text-white">
+        <h3 className="text-xl font-bold text-white">
           {editingEnrollmentId ? "Edit Enrollment" : "Enroll Student"}
         </h3>
 
@@ -45,7 +45,7 @@ const EnrollmentForm = ({
 
         <div>
 
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left ">
             Student
           </label>
 
@@ -54,7 +54,7 @@ const EnrollmentForm = ({
             value={formData.studentId}
             onChange={handleChange}
             required
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-xl border student-status-select option border-slate-300 px-3 py-2 text-sm  outline-none focus:ring-2 focus:ring-blue-500"
           >
 
             <option value="">Select Student</option>
@@ -78,7 +78,7 @@ const EnrollmentForm = ({
 
         <div>
 
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left">
             Course
           </label>
 
@@ -87,7 +87,7 @@ const EnrollmentForm = ({
             value={formData.courseId}
             onChange={handleChange}
             required
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-xl border student-status-select option border-slate-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
           >
 
             <option value="">Select Course</option>
@@ -111,7 +111,7 @@ const EnrollmentForm = ({
 
         <div>
 
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left">
             Enrollment Date
           </label>
 
@@ -120,7 +120,7 @@ const EnrollmentForm = ({
             name="enrollmentDate"
             value={formData.enrollmentDate}
             onChange={handleChange}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-xl border border-slate-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
           />
 
         </div>
@@ -129,7 +129,7 @@ const EnrollmentForm = ({
 
         <div>
 
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left">
             Status
           </label>
 
@@ -137,7 +137,7 @@ const EnrollmentForm = ({
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-xl border student-status-select option border-slate-300 px-3 py-2 text-sm outline-none focus:ring-2 focus:ring-blue-500"
           >
 
             <option value="ENROLLED">

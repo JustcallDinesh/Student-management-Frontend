@@ -13,7 +13,7 @@ const ConfirmModal = ({
   if (!isOpen) return null;
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center bg-black/60 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex text-[12px] items-center justify-center bg-black/60 backdrop-blur-sm">
       <div
         className="
           w-full
@@ -24,7 +24,7 @@ const ConfirmModal = ({
           bg-white/10
           backdrop-blur-xl
           shadow-2xl
-          p-6
+          p-3
           animate-in
           fade-in
           zoom-in-95
@@ -60,14 +60,14 @@ const ConfirmModal = ({
               border
               border-white/10
               bg-white/10
-              px-5
-              py-2.5
+              px-4
               text-white
               transition
               hover:bg-white/20
+              hover:cursor-pointer
               disabled:opacity-50
-            "
-          >
+              "
+              >
             {cancelText}
           </button>
 
@@ -75,13 +75,14 @@ const ConfirmModal = ({
             onClick={onConfirm}
             disabled={loading}
             className="
-              rounded-xl
-              bg-red-600
-              px-5
+            rounded-xl
+            bg-red-600
+              px-4
               py-2.5
               text-white
               transition
               hover:bg-red-700
+              hover:cursor-pointer
               disabled:opacity-50
             "
           >

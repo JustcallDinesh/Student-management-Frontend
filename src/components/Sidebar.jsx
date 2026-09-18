@@ -20,18 +20,18 @@ const Sidebar = () => {
   const { role } = useAuth();
 
   return (
-    <aside className="sticky top-0 h-auto  w-72 backdrop-blur-xl bg-white/10 border-r border-white/10 p-6">
-      <div className="mb-10">
-        <div className="h-16 w-16 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center text-white text-3xl font-bold shadow-xl">
+    <aside className="sticky top-0 h-auto  w-50 backdrop-blur-xl bg-white/10 border-r border-white/10 p-6">
+      <div className="mb-5">
+        <div className="h-10 w-10 rounded-2xl bg-gradient-to-r from-blue-500 to-indigo-600 flex items-center justify-center text-white text-3xl font-bold shadow-xl mb-3">
           S
         </div>
 
-        <h2 className="mt-5 text-2xl font-bold text-white">SMS Panel</h2>
+        <h2 className="mt-5 text-2xl text-left font-bold text-white">CMS Panel</h2>
 
-        <p className="text-slate-300 text-sm">Admin Dashboard</p>
+        <p className="text-slate-300 text-left text-sm">Admin Dashboard</p>
       </div>
 
-      <nav className="space-y-3">
+      <nav className="space-y-2">
         <NavLink to="/dashboard" className={navItem}>
           <FaHouse />
           Dashboard

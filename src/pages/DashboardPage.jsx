@@ -43,51 +43,39 @@ const DashboardPage = () => {
   // AUTHENTICATION
   // ==========================================
 
-  const {
-    user,
-    role,
-  } = useAuth();
-
-
-  // ==========================================
-  // DEBUG
-  // ==========================================
-
-  // console.log("Authenticated user:", user);
-  // console.log("Authenticated role:", role);
+  const { user, role } = useAuth();
 
 
   // ==========================================
   // STATISTICS CARDS
   // ==========================================
+  // Flat icon tint instead of a gradient block — smaller footprint,
+  // less visual weight per card.
 
   const cards = [
     {
       title: "Students",
       value: stats.students,
-      color: "from-blue-500 to-cyan-500",
-      icon: <FaUserGraduate className="text-2xl" />,
+      tint: "bg-blue-500/10 text-blue-400",
+      icon: <FaUserGraduate className="text-base" />,
     },
-
     {
       title: "Courses",
       value: stats.courses,
-      color: "from-emerald-500 to-green-500",
-      icon: <FaBook className="text-2xl" />,
+      tint: "bg-emerald-500/10 text-emerald-400",
+      icon: <FaBook className="text-base" />,
     },
-
     {
       title: "Enrollments",
       value: stats.enrollments,
-      color: "from-purple-500 to-pink-500",
-      icon: <FaClipboardList className="text-2xl" />,
+      tint: "bg-purple-500/10 text-purple-400",
+      icon: <FaClipboardList className="text-base" />,
     },
-
     {
       title: "Active Students",
       value: stats.activeStudents,
-      color: "from-orange-500 to-red-500",
-      icon: <FaUserCheck className="text-2xl" />,
+      tint: "bg-orange-500/10 text-orange-400",
+      icon: <FaUserCheck className="text-base" />,
     },
   ];
 
@@ -97,65 +85,49 @@ const DashboardPage = () => {
   // ==========================================
 
   return (
-    <div className="space-y-6 sm:space-y-8">
-
+    <div className="space-y-4">
       {/* =====================================
-          WELCOME
+          HEADER (replaces the big Welcome banner)
       ====================================== */}
 
-      <div className="rounded-3xl border border-white/10 bg-white/10 p-5 backdrop-blur-xl sm:p-8">
+      <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
 
-        <div className="flex flex-col gap-5 sm:flex-row sm:items-center sm:justify-between">
-
-          <div>
-
-            <h1 className="text-3xl font-bold text-white sm:text-4xl">
-              Welcome Back 👋
-            </h1>
-
-            <p className="mt-3 text-base text-slate-300 sm:text-lg">
-              Manage students, courses and enrollments from one place.
-            </p>
-
-          </div>
-
-
-          {/* Refresh */}
-
-          <button
-            type="button"
-            onClick={refreshDashboard}
-            disabled={refreshing}
-            className="
-              flex
-              items-center
-              justify-center
-              gap-3
-              rounded-xl
-              bg-blue-500/20
-              px-5
-              py-3
-              font-medium
-              text-white
-              transition
-              hover:bg-blue-500/30
-              disabled:cursor-not-allowed
-              disabled:opacity-50
-            "
-          >
-
-            <FaArrowRotateRight
-              className={refreshing ? "animate-spin" : ""}
-            />
-
-            {refreshing
-              ? "Refreshing..."
-              : "Refresh"
-            }
-
-          </button>
-
+        <div>
+          <h4 className="text-2xl text-left font-semibold text-white">
+            Dashboard
+          </h4>
+          <p className="mt-0.2 text-[12px] text-slate-400">
+            Students, courses and enrollments
+          </p>
         </div>
+
+        <button
+          type="button"
+          onClick={refreshDashboard}
+          disabled={refreshing}
+          className="
+            flex
+            items-center
+            gap-2
+            rounded-lg
+            border
+            border-white/10
+            px-3
+            py-1.5
+            text-xs
+            font-medium
+            text-slate-300
+            transition
+            hover:bg-white/5
+            disabled:cursor-not-allowed
+            disabled:opacity-50
+          "
+        >
+          <FaArrowRotateRight
+            className={`text-xs ${refreshing ? "animate-spin" : ""}`}
+          />
+          {refreshing ? "Refreshing..." : "Refresh"}
+        </button>
 
       </div>
 
@@ -165,47 +137,27 @@ const DashboardPage = () => {
       ====================================== */}
 
       {error && (
-
-        <div className="
-          rounded-2xl
-          border
-          border-red-500/20
-          bg-red-500/10
-          p-5
-        ">
-
-          <div className="
-            flex
-            flex-col
-            gap-4
-            sm:flex-row
-            sm:items-center
-            sm:justify-between
-          ">
-
+        <div className="rounded-xl border border-red-500/20 bg-red-500/10 p-4">
+          <div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
             <div>
-
-              <p className="font-semibold text-red-400">
-                Dashboard Error
+              <p className="text-sm font-medium text-red-400">
+                Dashboard error
               </p>
-
-              <p className="mt-1 text-sm text-red-300">
+              <p className="mt-0.5 text-xs text-red-300">
                 {error}
               </p>
-
             </div>
-
 
             <button
               type="button"
               onClick={refreshDashboard}
               disabled={refreshing}
               className="
-                rounded-xl
+                rounded-lg
                 bg-red-500/20
-                px-4
-                py-2
-                text-sm
+                px-3
+                py-1.5
+                text-xs
                 font-medium
                 text-red-300
                 transition
@@ -214,97 +166,48 @@ const DashboardPage = () => {
                 disabled:opacity-50
               "
             >
-              {refreshing
-                ? "Retrying..."
-                : "Try Again"
-              }
+              {refreshing ? "Retrying..." : "Try again"}
             </button>
-
           </div>
-
         </div>
-
       )}
 
 
       {/* =====================================
-          STATISTICS
+          STATISTICS — compact cards, hairline border,
+          small tinted icon instead of a gradient block
       ====================================== */}
 
       {loading ? (
-
         <DashboardStatsSkeleton />
-
       ) : (
-
-        <div className="
-          grid
-          gap-6
-          sm:grid-cols-2
-          xl:grid-cols-4
-        ">
-
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
           {cards.map((card) => (
-
             <div
               key={card.title}
               className="
-                rounded-3xl
+                rounded-xl
                 border
                 border-white/10
-                bg-white/10
-                p-6
-                shadow-xl
-                backdrop-blur-xl
-                transition
-                duration-300
-                hover:scale-[1.02]
+                bg-white/5
+                p-4
               "
             >
-
-              {/* Icon */}
-
-              <div
-                className={`
-                  flex
-                  h-16
-                  w-16
-                  items-center
-                  justify-center
-                  rounded-2xl
-                  bg-gradient-to-r
-                  ${card.color}
-                  text-white
-                  shadow-lg
-                `}
-              >
-                {card.icon}
+              <div className="flex items-center justify-between">
+                <p className="text-xs text-slate-400">
+                  {card.title}
+                </p>
+                <div className={`flex h-7 w-7 items-center justify-center rounded-lg ${card.tint}`}>
+                  {card.icon}
+                </div>
               </div>
 
-
-              {/* Title */}
-
-              <p className="mt-6 text-slate-300">
-                {card.title}
-              </p>
-
-
-              {/* Number */}
-
-              <h2 className="mt-2 text-4xl font-bold text-white sm:text-5xl">
-
-                <AnimatedNumber
-                  value={card.value}
-                />
-
+              <h2 className="mt-2 text-2xl font-semibold text-white">
+                <AnimatedNumber value={card.value} />
               </h2>
-
             </div>
-
           ))}
-
         </div>
-
       )}
 
 
@@ -312,16 +215,9 @@ const DashboardPage = () => {
           CHARTS
       ====================================== */}
 
-      <div className="grid gap-6 xl:grid-cols-2">
-
-        <EnrollmentTrendChart
-          data={enrollmentTrend}
-        />
-
-        <CourseDistributionChart
-          data={courseDistribution}
-        />
-
+      <div className="grid  gap-3 xl:grid-cols-2">
+        <EnrollmentTrendChart data={enrollmentTrend} />
+        <CourseDistributionChart data={courseDistribution} />
       </div>
 
 
@@ -329,35 +225,17 @@ const DashboardPage = () => {
           QUICK ACTIONS + RECENT STUDENTS
       ====================================== */}
 
-      <div className="grid gap-6 xl:grid-cols-2">
+      <div className="grid gap-3 xl:grid-cols-2">
 
+        {/* QUICK ACTIONS — thin bordered rows instead of big
+            gradient blocks */}
 
-        {/* QUICK ACTIONS */}
-
-        <div className="
-          rounded-3xl
-          border
-          border-white/10
-          bg-white/10
-          p-5
-          backdrop-blur-xl
-          sm:p-8
-        ">
-
-          <h2 className="
-            mb-6
-            text-2xl
-            font-bold
-            text-white
-          ">
-            Quick Actions
+        <div className="rounded-xl border border-white/10 bg-white/5 p-4">
+          <h2 className="mb-3 text-sm font-semibold text-white">
+            Quick actions
           </h2>
 
-
-          <div className="space-y-4">
-
-
-            {/* Add Student */}
+          <div className="space-y-2">
 
             <Link
               to="/students"
@@ -365,33 +243,23 @@ const DashboardPage = () => {
                 flex
                 items-center
                 justify-between
-                rounded-2xl
-                bg-blue-500/20
-                px-4
-                py-4
+                rounded-lg
+                border
+                border-white/10
+                px-3
+                py-2.5
+                text-sm
+                text-slate-200
                 transition
-                hover:bg-blue-500/40
-                sm:px-6
-                sm:py-5
+                hover:bg-white/5
               "
             >
-
-              <div className="flex items-center gap-4">
-
-                <FaPlus className="text-white" />
-
-                <span className="text-white">
-                  Add Student
-                </span>
-
+              <div className="flex items-center gap-2.5">
+                <FaPlus className="text-xs text-slate-400" />
+                <span>Add student</span>
               </div>
-
-              <FaArrowRight className="text-white" />
-
+              <FaArrowRight className="text-xs text-slate-500" />
             </Link>
-
-
-            {/* Add Course */}
 
             <Link
               to="/courses"
@@ -399,33 +267,23 @@ const DashboardPage = () => {
                 flex
                 items-center
                 justify-between
-                rounded-2xl
-                bg-green-500/20
-                px-4
-                py-4
+                rounded-lg
+                border
+                border-white/10
+                px-3
+                py-2.5
+                text-sm
+                text-slate-200
                 transition
-                hover:bg-green-500/40
-                sm:px-6
-                sm:py-5
+                hover:bg-white/5
               "
             >
-
-              <div className="flex items-center gap-4">
-
-                <FaPlus className="text-white" />
-
-                <span className="text-white">
-                  Add Course
-                </span>
-
+              <div className="flex items-center gap-2.5">
+                <FaPlus className="text-xs text-slate-400" />
+                <span>Add course</span>
               </div>
-
-              <FaArrowRight className="text-white" />
-
+              <FaArrowRight className="text-xs text-slate-500" />
             </Link>
-
-
-            {/* Enroll Student */}
 
             <Link
               to="/enrollments"
@@ -433,41 +291,31 @@ const DashboardPage = () => {
                 flex
                 items-center
                 justify-between
-                rounded-2xl
-                bg-purple-500/20
-                px-4
-                py-4
+                rounded-lg
+                border
+                border-white/10
+                px-3
+                py-2.5
+                text-sm
+                text-slate-200
                 transition
-                hover:bg-purple-500/40
-                sm:px-6
-                sm:py-5
+                hover:bg-white/5
               "
             >
-
-              <div className="flex items-center gap-4">
-
-                <FaPlus className="text-white" />
-
-                <span className="text-white">
-                  Enroll Student
-                </span>
-
+              <div className="flex items-center gap-2.5">
+                <FaPlus className="text-xs text-slate-400" />
+                <span>Enroll student</span>
               </div>
-
-              <FaArrowRight className="text-white" />
-
+              <FaArrowRight className="text-xs text-slate-500" />
             </Link>
 
           </div>
-
         </div>
 
+        {/* RECENT STUDENTS — pass a "dense" flag if that
+            component supports it; see note below */}
 
-        {/* RECENT STUDENTS */}
-
-        <RecentStudents
-          students={recentStudents}
-        />
+        <RecentStudents students={recentStudents} dense />
 
       </div>
 
@@ -476,9 +324,7 @@ const DashboardPage = () => {
           RECENT ENROLLMENTS
       ====================================== */}
 
-      <RecentEnrollments
-        enrollments={recentEnrollments}
-      />
+      <RecentEnrollments enrollments={recentEnrollments} dense />
 
     </div>
   );

@@ -11,7 +11,7 @@ const StudentSearch = ({
   filteredCount,
 }) => {
   return (
-    <div className="glass-card rounded-3xl p-5">
+    <div className="glass-card rounded-3xl px-5 pb-2 ">
       <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
 
         {/* Left Side */}
@@ -29,7 +29,7 @@ const StudentSearch = ({
               placeholder="Search students..."
               value={searchTerm}
               onChange={(e) => setSearchTerm(e.target.value)}
-              className="glass-input w-80 rounded-2xl py-3 pl-12 pr-4"
+              className="glass-input w-80 rounded-2xl py-2 pl-12 pr-4 border border-b-blue-600 placeholder:text-sm "
             />
 
           </div>
@@ -39,9 +39,9 @@ const StudentSearch = ({
           <select
             value={statusFilter}
             onChange={(e) => setStatusFilter(e.target.value)}
-            className="glass-input rounded-2xl px-4 py-3"
+            className="student-status-select glass-input rounded-2xl px-2 py-2 backdrop-blur-2xl"
           >
-            <option value="ALL">All Status</option>
+            <option  value="ALL">All Status</option>
             <option value="ACTIVE">ACTIVE</option>
             <option value="INACTIVE">INACTIVE</option>
           </select>
@@ -50,7 +50,7 @@ const StudentSearch = ({
 
         {/* Counter */}
 
-        <div className="text-sm text-slate-300">
+        <div className="text-[14px] text-slate-300">
 
           Showing
 

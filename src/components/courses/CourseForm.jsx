@@ -9,10 +9,10 @@ const CourseForm = ({
   error,
 }) => {
   return (
-    <div className="rounded-3xl border border-white/30  backdrop-blur-xl shadow-xl p-8">
+    <div className="rounded-3xl border border-white/30  backdrop-blur-xl shadow-xl p-4">
 
       <div className="flex items-center justify-between mb-6">
-        <h3 className="text-2xl font-bold text-shadow-blue-200">
+        <h3 className=" font-bold text-shadow-blue-200 text-center">
           {editingCourseId ? "Edit Course" : "Add New Course"}
         </h3>
 
@@ -35,7 +35,7 @@ const CourseForm = ({
         {/* Course Code */}
 
         <div>
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left ">
             Course Code
           </label>
 
@@ -46,14 +46,14 @@ const CourseForm = ({
             onChange={handleChange}
             placeholder="JAVA101"
             required
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
 
         {/* Course Title */}
 
         <div>
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left ">
             Course Title
           </label>
 
@@ -64,14 +64,14 @@ const CourseForm = ({
             onChange={handleChange}
             placeholder="Java Full Stack"
             required
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
 
         {/* Duration */}
 
         <div>
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left ">
             Duration (Months)
           </label>
 
@@ -82,14 +82,14 @@ const CourseForm = ({
             onChange={handleChange}
             min="1"
             required
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
 
         {/* Fee */}
 
         <div>
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left ">
             Fee
           </label>
 
@@ -101,14 +101,14 @@ const CourseForm = ({
             min="0"
             step="0.01"
             required
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
 
         {/* Status */}
 
         <div>
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left ">
             Status
           </label>
 
@@ -116,7 +116,7 @@ const CourseForm = ({
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full  student-status-select option rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           >
             <option value="ACTIVE">ACTIVE</option>
             <option value="INACTIVE">INACTIVE</option>
@@ -126,7 +126,7 @@ const CourseForm = ({
         {/* Description */}
 
         <div className="md:col-span-2">
-          <label className="block mb-2 font-medium text-white">
+          <label className="block mb-2 font-medium text-white text-left ">
             Description
           </label>
 
@@ -136,7 +136,7 @@ const CourseForm = ({
             value={formData.description}
             onChange={handleChange}
             placeholder="Course description..."
-            className="w-full rounded-xl border border-slate-300 px-4 py-3 focus:ring-2 focus:ring-blue-500 outline-none"
+            className="w-full rounded-xl border border-slate-300 px-3 py-2 focus:ring-2 focus:ring-blue-500 outline-none"
           />
         </div>
 

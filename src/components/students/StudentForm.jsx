@@ -9,8 +9,8 @@ const StudentForm = ({
   error,
 }) => {
   return (
-    <div className="rounded-xl bg-transparent p-6 shadow-sm border border-slate-200">
-      <div className="flex items-center justify-between mb-4">
+    <div className="rounded-xl bg-transparent p-5 shadow-sm border border-slate-200">
+      <div className="flex items-center justify-between mb-3">
         <h3 className="text-lg font-semibold text-white-800">
           {editingStudentId ? "Edit Student" : "Add Student"}
         </h3>
@@ -32,7 +32,7 @@ const StudentForm = ({
       >
         {/* Full Name */}
         <div>
-          <label className="block text-sm font-medium text-white mb-2">
+          <label className="block text-sm font-medium text-white mb-2 text-left">
             Full Name
           </label>
 
@@ -42,14 +42,14 @@ const StudentForm = ({
             value={formData.fullName}
             onChange={handleChange}
             placeholder="Enter full name"
-            className="w-full rounded-lg border  border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500 placeholder:"
+            className="w-full rounded-lg border  border-slate-300 px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"
             required
           />
         </div>
 
         {/* Email */}
         <div>
-          <label className="block text-sm font-medium text-white mb-2">
+          <label className="block text-sm font-medium text-white mb-2 text-left">
             Email
           </label>
 
@@ -59,14 +59,14 @@ const StudentForm = ({
             value={formData.email}
             onChange={handleChange}
             placeholder="Enter email"
-            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"
             required
           />
         </div>
 
         {/* Phone */}
         <div>
-          <label className="block text-sm font-medium text-white mb-2">
+          <label className="block text-sm font-medium text-white mb-2 text-left">
             Phone
           </label>
 
@@ -76,14 +76,14 @@ const StudentForm = ({
             value={formData.phone}
             onChange={handleChange}
             placeholder="Enter phone number"
-            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm"
             required
           />
         </div>
 
         {/* DOB */}
         <div>
-          <label className="block text-sm font-medium text-white mb-2">
+          <label className="block text-sm font-medium text-white mb-2 text-left">
             Date of Birth
           </label>
 
@@ -92,14 +92,14 @@ const StudentForm = ({
             name="dateOfBirth"
             value={formData.dateOfBirth}
             onChange={handleChange}
-            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm "
             required
           />
         </div>
 
         {/* Gender */}
         <div>
-          <label className="block text-sm font-medium text-white mb-2">
+          <label className="block text-sm font-medium text-white mb-2 text-left">
             Gender
           </label>
 
@@ -107,10 +107,10 @@ const StudentForm = ({
             name="gender"
             value={formData.gender}
             onChange={handleChange}
-            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm student-status-select"
             required
           >
-            <option value="">Select gender</option>
+            <option className="student-status-select option" value="">Select gender</option>
             <option value="MALE">MALE</option>
             <option value="FEMALE">FEMALE</option>
             <option value="OTHER">OTHER</option>
@@ -119,7 +119,7 @@ const StudentForm = ({
 
         {/* Status */}
         <div>
-          <label className="block text-sm font-medium text-white mb-2">
+          <label className="block text-sm font-medium text-white mb-2 text-left">
             Status
           </label>
 
@@ -127,7 +127,7 @@ const StudentForm = ({
             name="status"
             value={formData.status}
             onChange={handleChange}
-            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 placeholder:text-sm student-status-select option"
             required
           >
             <option value="ACTIVE">ACTIVE</option>
@@ -137,7 +137,7 @@ const StudentForm = ({
 
         {/* Address */}
         <div className="md:col-span-2">
-          <label className="block text-sm font-medium text-white mb-2">
+          <label className="block text-sm font-medium text-white mb-2 text-left">
             Address
           </label>
 
@@ -147,7 +147,7 @@ const StudentForm = ({
             onChange={handleChange}
             rows="3"
             placeholder="Enter address"
-            className="w-full rounded-lg border border-slate-300 px-4 py-3 outline-none focus:ring-2 focus:ring-blue-500"
+            className="w-full rounded-lg border border-slate-300 px-4 py-2 outline-none focus:ring-2 focus:ring-blue-500 text-left placeholder:text-sm"
             required
           />
         </div>
@@ -157,7 +157,7 @@ const StudentForm = ({
           <button
             type="submit"
             disabled={submitLoading}
-            className={`w-full rounded-lg px-4 py-3 text-white font-semibold cursor-pointer transition disabled:opacity-70 ${
+            className={`w-full rounded-lg px-4 py-2 text-white font-semibold cursor-pointer transition disabled:opacity-70 ${
               editingStudentId
                 ? "bg-amber-600 hover:bg-amber-700"
                 : "bg-green-600 hover:bg-green-700"

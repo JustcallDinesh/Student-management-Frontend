@@ -1,5 +1,5 @@
-import EnrollmentHeader from "../components/enrollments/enrollmentHeader.jsx"
-import EnrollmentForm from "../components/enrollments/enrollmentForm.jsx"
+import EnrollmentHeader from "../components/enrollments/enrollmentHeader.jsx";
+import EnrollmentForm from "../components/enrollments/enrollmentForm.jsx";
 import EnrollmentTable from "../components/enrollments/enrollmentTable.jsx";
 
 import useEnrollments from "../hooks/useEnrollments";
@@ -30,37 +30,26 @@ const EnrollmentsPage = () => {
 
   return (
     <div className="space-y-6">
-
-      <EnrollmentHeader
-        loadPageData={loadPageData}
-      />
-
-      <EnrollmentForm
-        students={students}
-        courses={courses}
-
-        formData={formData}
-
-        handleChange={handleChange}
-        handleSubmit={handleSubmit}
-
-        editingEnrollmentId={editingEnrollmentId}
-        resetForm={resetForm}
-
-        submitLoading={submitLoading}
-
-        successMessage={successMessage}
-        error={error}
-      />
+      <EnrollmentHeader loadPageData={loadPageData} />
 
       <EnrollmentTable
         enrollments={enrollments}
         loading={loading}
-
         handleEdit={handleEdit}
         handleDelete={handleDelete}
       />
-
+      <EnrollmentForm
+        students={students}
+        courses={courses}
+        formData={formData}
+        handleChange={handleChange}
+        handleSubmit={handleSubmit}
+        editingEnrollmentId={editingEnrollmentId}
+        resetForm={resetForm}
+        submitLoading={submitLoading}
+        successMessage={successMessage}
+        error={error}
+      />
     </div>
   );
 };

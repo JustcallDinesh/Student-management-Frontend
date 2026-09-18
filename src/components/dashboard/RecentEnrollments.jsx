@@ -30,7 +30,7 @@ const RecentEnrollments = ({ enrollments = [] }) => {
             Recent Enrollments
           </h2>
 
-          <p className="mt-1 text-sm text-slate-400">
+          <p className="mt-1 text-left text-sm text-slate-400">
             Latest student enrollments
           </p>
         </div>
@@ -82,7 +82,7 @@ const RecentEnrollments = ({ enrollments = [] }) => {
 
                   <div className="min-w-0">
 
-                    <p className="truncate font-semibold text-white">
+                    <p className="truncate text-left font-semibold text-white">
                       {enrollment.studentName}
                     </p>
 
@@ -90,7 +90,7 @@ const RecentEnrollments = ({ enrollments = [] }) => {
 
                       <FaBookOpen className="text-xs text-slate-500" />
 
-                      <p className="truncate text-sm text-slate-400">
+                      <p className="truncate text-left text-[12px] text-slate-400">
                         {enrollment.courseName}
                       </p>
 
@@ -104,7 +104,7 @@ const RecentEnrollments = ({ enrollments = [] }) => {
 
                 <div className="flex shrink-0 flex-col items-end gap-2">
 
-                  <div className="flex items-center gap-2 text-xs text-slate-400">
+                  <div className="flex items-center gap-2 text-xs text-right text-slate-400">
 
                     <FaCalendarDays />
 

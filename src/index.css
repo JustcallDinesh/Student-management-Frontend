@@ -227,3 +227,15 @@ code {
 label::placeholder{
   color: #8c05f3;
 }
+
+.student-status-select {
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background-color: rgba(15, 23, 42, 0.9);
+  color: #f8fafc;
+}
+
+.student-status-select option {
+  border: 1px solid rgba(148, 163, 184, 0.45);
+  background-color: #0f172a;
+  color: #f8fafc;
+}

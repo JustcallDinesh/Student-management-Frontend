@@ -4,9 +4,8 @@ import { useNavigate } from "react-router-dom";
 import toast from "react-hot-toast";
 
 const Navbar = () => {
-  const { user, logout } = useAuth();
+  const { user, logout,role } = useAuth();
   const navigate = useNavigate();
-
   const handleLogout = async () => {
     await logout();
 
@@ -16,11 +15,11 @@ const Navbar = () => {
 
   return (
     <header className="sticky top-0 z-30 backdrop-blur-xl bg-white/10 border-b border-white/10">
-      <div className="flex items-center justify-between px-8 py-5">
-        <div>
-          <h1 className="text-3xl font-bold text-white">Student Management</h1>
+      <div className="flex items-center justify-between px-8 py-3">
+        <div >
+          <h3 className="text-2xl font-bold text-white">Course Management System</h3>
 
-          <p className="text-sm text-slate-300 mt-1">
+          <p className=" text-left text-[12px] text-base justify-items-start text-slate-300 mt-1">
             Manage Students, Courses & Enrollments
           </p>
         </div>
@@ -33,16 +32,16 @@ const Navbar = () => {
           </button>
 
           <div className="text-right">
-            <p className="text-white font-semibold">
+            <p className="text-white text-[15px] font-semibold">
               {user?.username || "Administrator"}
             </p>
 
-            <p className="text-slate-300 text-sm">System User</p>
+            <p className="text-slate-300 text-[12px]">{role==="ADMIN"?"ADMIN":"USER"}</p>
           </div>
 
           <button
             onClick={handleLogout}
-            className="rounded-xl bg-red-500 px-5 py-2.5 text-white font-medium hover:bg-red-600 transition shadow-lg"
+            className="rounded-xl bg-red-500 px-5 py-2.5 text-white font-medium hover:bg-red-600 transition hover:cursor-pointer shadow-lg font-mono"
           >
             Logout
           </button>
